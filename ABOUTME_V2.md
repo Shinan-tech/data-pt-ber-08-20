@@ -8,3 +8,5 @@ Master in Finance
 
 ## My linkedin
 [Link] (https://www.linkedin.com/feed/)
+
+Update on Aboutme_V2
