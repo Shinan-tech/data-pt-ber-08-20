@@ -1,0 +1,16 @@
+select min(price), max(price) from olist.order_items;
+select min(shipping_limit_date), max(shipping_limit_date) from olist.order_items;
+select count(customer_id), customer_state from olist.customers group by customer_state order by count(customer_id) desc limit 3;
+select count(customer_id), customer_city from olist.customers group by customer_state, customer_city order by count(customer_id) desc limit 3;
+select count(customer_id), customer_city from olist.customers where customer_state = 'SP' group by customer_city order by count(customer_id) desc limit 3;
+select count(distinct(business_segment)) from olist.closed_deals where business_segment is not null;
+select business_segment, sum(declared_monthly_revenue) from olist.closed_deals group by business_segment order by sum(declared_monthly_revenue) desc limit 3;
+select review_score, count(order_id) from olist.order_reviews group by review_score order by count(order_id) desc limit 1;
+select origin, count(mql_id) from olist.marketing_qualified_leads where first_contact_date > '2018-01-01 01:00:00'group by origin order by count(mql_id) desc limit 3;
+select CONVERT_TZ(first_contact_date, @@session.time_zone, '+00:00') as first_contact_date_UTC, count(mql_id) from olist.marketing_qualified_leads group by first_contact_date_UTC order by count(mql_id) desc limit 1;
+select product_category_name, max(product_weight_g) from olist.products;
+select product_category_name, max(product_weight_g) from olist.products group by product_category_name order by max(product_weight_g) desc limit 1;
+select product_category_name, product_length_cm + product_height_cm + product_width_cm as product_dimensions from olist.products order by product_dimensions desc limit 1;
+select payment_type, count(order_id) from olist.order_payments group by payment_type order by count(order_id) desc limit 1;
+select max(payment_value), payment_type from olist.order_payments;
+select seller_state, count(distinct(seller_city) from olist.sellers group by seller_state order by count(distinct(seller_city)) desc limit 3;
