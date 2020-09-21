@@ -13,4 +13,4 @@ select product_category_name, max(product_weight_g) from olist.products group by
 select product_category_name, product_length_cm + product_height_cm + product_width_cm as product_dimensions from olist.products order by product_dimensions desc limit 1;
 select payment_type, count(order_id) from olist.order_payments group by payment_type order by count(order_id) desc limit 1;
 select max(payment_value), payment_type from olist.order_payments;
-select seller_state, count(distinct(seller_city) from olist.sellers group by seller_state order by count(distinct(seller_city)) desc limit 3;
+select seller_state, count(distinct(seller_city)) from olist.sellers group by seller_state order by count(distinct(seller_city)) desc limit 3;
