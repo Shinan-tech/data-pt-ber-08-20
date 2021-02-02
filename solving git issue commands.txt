@@ -1,0 +1,3 @@
+touch .gitignore
+git reset --soft HEAD~18 --> I did 18 commits, that is why 18
+git push --force
